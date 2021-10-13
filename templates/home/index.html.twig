@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .example-wrapper{
+            color: black;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper">
+    <h1>Hello {{ nom }} {{ prenom }}!</h1>
+
+    {% if nom == "Berti" %}
+        <div>c'est bien Berti</div>
+
+    {% elseif nom == "Dubois" %}
+        <div>c'est bien Dubois</div>
+    {% else %}
+        <div>c'est {{nom}}</div>
+
+    {% endif %}
+
+    {% for i in 'a'..'z' %}
+        <div>{{i}}</div>
+    {% endfor %}
+
+    {# mon commentaire #}
+
+    {% for prenom, age in tableau %}
+
+        <div>{{ loop.index }} - {{prenom}} a {{age}}</div>
+
+    {% endfor %}
+
+    {% set url = path('home') %}
+
+    <div>
+        <a href="{{url}}">HomePage</a>
+    </div>
+
+    <div>{{prenom | lower }}</div>
+    
+</div>
+{% endblock %}
+
+
+
